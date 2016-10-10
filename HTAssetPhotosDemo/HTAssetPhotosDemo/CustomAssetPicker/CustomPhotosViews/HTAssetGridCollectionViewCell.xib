@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Exy-Mv-wZ8" customClass="HTAssetGridCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="96" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="96" height="77"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="btY-w0-SEb"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49B-Aw-93G">
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="49B-Aw-93G" secondAttribute="height" multiplier="1:1" id="ON4-FD-CK4"/>
+                            <constraint firstAttribute="height" constant="23" id="mEo-Am-WZH"/>
+                        </constraints>
+                        <connections>
+                            <action selector="selectPhotoBtn:" destination="Exy-Mv-wZ8" eventType="touchUpInside" id="DKS-mg-VFP"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="49B-Aw-93G" secondAttribute="trailing" constant="3" id="3OO-V5-p9E"/>
+                <constraint firstAttribute="bottom" secondItem="49B-Aw-93G" secondAttribute="bottom" constant="3" id="3oC-JT-pgh"/>
+                <constraint firstItem="btY-w0-SEb" firstAttribute="centerX" secondItem="Exy-Mv-wZ8" secondAttribute="centerX" id="NCJ-LU-hmf"/>
+                <constraint firstItem="btY-w0-SEb" firstAttribute="width" secondItem="Exy-Mv-wZ8" secondAttribute="width" id="djw-AD-TR5"/>
+                <constraint firstItem="btY-w0-SEb" firstAttribute="height" secondItem="Exy-Mv-wZ8" secondAttribute="height" id="kmE-jC-Crh"/>
+                <constraint firstItem="btY-w0-SEb" firstAttribute="centerY" secondItem="Exy-Mv-wZ8" secondAttribute="centerY" id="v3s-Tb-h5G"/>
+            </constraints>
+            <size key="customSize" width="96" height="77"/>
+            <connections>
+                <outlet property="photoImageView" destination="btY-w0-SEb" id="PIr-tg-X9s"/>
+                <outlet property="selectPhotoBtn" destination="49B-Aw-93G" id="Qsl-qX-yxD"/>
+            </connections>
+            <point key="canvasLocation" x="-59" y="67"/>
+        </collectionViewCell>
+    </objects>
+</document>
