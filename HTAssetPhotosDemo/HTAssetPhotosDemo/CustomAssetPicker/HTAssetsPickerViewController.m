@@ -94,6 +94,10 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         NSURL *URL = [NSURL URLWithString:@"prefs:root=Privacy&path=PHOTOS"];
         if ([[UIApplication sharedApplication] canOpenURL:URL]) {
+            if ([[[UIDevice currentDevice] systemVersion] floatValue] >=10) {
+                [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:nil];
+            };
+        }else{
             [[UIApplication sharedApplication] openURL:URL];
         }
     }];

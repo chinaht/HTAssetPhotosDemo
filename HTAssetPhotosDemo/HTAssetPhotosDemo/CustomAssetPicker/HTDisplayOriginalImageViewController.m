@@ -33,7 +33,7 @@
     
     self.backScrollView.delegate = self;
     self.backScrollView.maximumZoomScale = 2;
-    self.backScrollView.minimumZoomScale = 0.3;
+    self.backScrollView.minimumZoomScale = 1;
     self.backScrollView.frame = [UIScreen mainScreen].bounds;
     self.imageView.frame = self.backScrollView.bounds;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;

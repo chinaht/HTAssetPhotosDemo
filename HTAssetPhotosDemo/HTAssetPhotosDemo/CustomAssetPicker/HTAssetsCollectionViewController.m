@@ -189,25 +189,17 @@ static NSString * const reuseIdentifier = @"HTAssetGridCollectionViewCell";
 #pragma mark 完成选择
 -(void)finishSelectPhoto{
     NSMutableArray *tempPhotos = [NSMutableArray new];
-    __block NSInteger i = 0;
+    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+    options.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
+    options.synchronous = YES;
     for (PHAsset *asset in self.selectPhotos) {
-//        CGSize targetSize = CGSizeMake(asset.pixelWidth, asset.pixelHeight);
-        __weak typeof(self) weakSelf = self;
-        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            i++;
-            [tempPhotos addObject:result];
-            if (i>=weakSelf.selectPhotos.count) {
-                [weakSelf returnSelectPhotos:tempPhotos];
-            }
+        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                [tempPhotos addObject:result];
+            
         }];
     }
-    
-//    if ([self.picker.delegate respondsToSelector:@selector(assetsPickerViewControllerFinishSelectPhotos:)]) {
-//        [self.picker.delegate assetsPickerViewControllerFinishSelectPhotos:tempPhotos];
-//    }
-//    if (self.picker.finishSelectPhotosCallBack) {
-//        self.picker.finishSelectPhotosCallBack(tempPhotos);
-//    }
+    [self returnSelectPhotos:tempPhotos];
+
 }
 -(void)returnSelectPhotos:(NSArray *)photos{
     [self dismissViewControllerAnimated:YES completion:nil];
